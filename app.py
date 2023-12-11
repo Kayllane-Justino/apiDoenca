@@ -9,8 +9,11 @@ doenças = {
 }
 
 from flask import Flask, jsonify  # Adicione jsonify aqui
+from flask_cors import CORS
 
 app = Flask(__name__)
+
+CORS(app, supports_credentials=True, resources={r"/*: {"origins": "*"}"})
 
 @app.route('/')
 def hello_world():
